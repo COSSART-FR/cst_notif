@@ -1,5 +1,9 @@
 RegisterCommand("notif", function()
-	SendNUIMessage({
-		createNotification()
-	})
+	cstNotif()
 end, false)
+
+function cstNotif()
+	SendNUIMessage({
+		action = true
+	})
+end

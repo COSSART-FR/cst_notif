@@ -1,6 +1,6 @@
 const container = document.getElementById("container");
 
-function createNotification() {
+createNotification = function() {
     const notif = document.createElement("div");
     notif.classList.add("toast");
 
@@ -15,3 +15,10 @@ function createNotification() {
         notif.remove();
     }, 7500);
 }
+
+window.addEventListener('message', (event) => {
+	let data = event.data
+	if(data.action == true) {
+		createNotification() 
+	}
+})
