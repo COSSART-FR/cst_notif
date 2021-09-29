@@ -18,3 +18,7 @@ files {
 client_scripts {
   'client.lua',
 }
+
+export {
+  'simpleNotification'
+}
