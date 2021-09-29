@@ -1,5 +1,5 @@
 # cst_notif
-(pas encore terminé)
+version : bêta
 
 # server_side :
 ```
