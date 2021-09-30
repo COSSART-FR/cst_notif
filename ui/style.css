@@ -1,64 +1,71 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  min-height: 100vh;
 }
 
 #container {
-    position: fixed;
-    bottom: 150px;
-    right: 5px;
-    width: 250px;
+  position: fixed;
+  bottom: 150px;
+  right: 5px;
+  width: 250px;
 }
 
-.toast {
-    background-color: #2b2b2b;
-    color: #fff;
-    padding: 10px 10px;
-    margin: 2px;
-    opacity: 0.9;
-    animation: anim 1s;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
+.notification {
+  background-color: #2b2b2b;
+  color: #fff;
+  padding: 10px 10px;
+  margin: 2px;
+  opacity: 0.9;
+  animation: anim 1s;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
 }
 
-.toast img {
-    width: 50px;
-    height: 50px;
-    margin-right: 5px;
+.notification img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+}
+
+.loadBar {
+  position: relative;
+  top: -12px;
+  right: -2px;
+  width: 1%;
+  height: 10px;
+  background: green;
+  animation: anim 1s;
 }
 
 .remove-notif {
-    animation: animremove 1s;
+  animation: animremove 1s;
 }
 
-
-
-
 @keyframes anim {
-    0% {
-        transform: translateX(100px);
-    }
-    100% {
-        transform: translateX(0px);
-    }
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes animremove {
-    0% {
-        transform: translateX(0px);
-    }
-    100% {
-        transform: translateX(300px);
-    }
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(300px);
+  }
 }
