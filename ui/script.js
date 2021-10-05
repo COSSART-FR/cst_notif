@@ -1,47 +1,55 @@
 const container = document.getElementById("container");
 
-createNotification = function(txt, time) {
-
-    let timing = time
-    let message = txt
+let defaultText = config.defaultText;
+let defaultBackgroundColor = config.defaultBackgroundColor;
+let defaultTimer = config.defaultTimer;
+let defaultLogo = config.defaultLogo;
+//console.log(defaultLogo, defaultTimer, defaultBackgroundColor, defaultLogo, '--> [PARAMETRE DEFAULT CONFIG]')
+createNotification = function(txt, time, color, image) {
+    let timing = time;
+    let message = txt;
+    let logo = "img/" + image + ".png";
+    //console.log(txt, time, color, image, '[createNotification]')
     const notif = document.createElement("div");
-    notif.classList.add("notification");
-
-    const bar = document.createElement("div");
-    bar.classList.add("loadBar");
-    bar.setAttribute('id', 'loadBar');
-
-    if(message == undefined){
-        notif.innerHTML = '<img src="logo.png"><h4>Voci ma notif !</h4>';
+    notif.className = "toast";
+    //La partie Text + Logo
+    if(message == undefined && logo == undefined){
+        //console.log(defaultText, defaultLogo," --> [1]")
+        notif.innerHTML = '<img src="' + defaultLogo + '"><h4>' + defaultText + '</h4>';
+    }else if(message && image == undefined){
+        //console.log(txt, defaultLogo," --> [2]")
+        notif.innerHTML = '<img src="' + defaultLogo + '"><h4>' + txt + '</h4>';
+    }else if(image && message == undefined){
+        //console.log(defaultText, logo," --> [3]")
+        notif.innerHTML = '<img src="' + logo + '"><h4>' + defaultText + '</h4>';
     }else{
-        notif.innerHTML = '<img src="logo.png"><h4>' + txt + '</h4>';
+        //console.log(txt, logo," --> [4]")
+        notif.innerHTML = '<img src="' + logo + '"><h4>' + txt + '</h4>';
     }
-    //notif.innerHTML = '<img src="logo.png"><h4>Voci ma notif !</h4>';
+
+    //La partie couleur
+    if(color == undefined){
+        notif.style.background = defaultBackgroundColor;
+    }else{
+        notif.style.background = color;
+    }
 
     container.appendChild(notif);
-    container.appendChild(bar);
 
+    //La partie Timer
     if(timing == undefined){
         setTimeout(() => {
             notif.classList.add("remove-notif");
-            bar.classList.add("remove-notif");
-            move(7000);
-        }, 7000);
+        }, defaultTimer);
         setTimeout(() => {
             notif.remove();
-            bar.remove();
-            move(7500);
-        }, 7500);
+        }, defaultTimer + 500);
     }else{
         setTimeout(() => {
             notif.classList.add("remove-notif");
-            bar.classList.add("remove-notif");
-            move(timing);
         }, timing);
         setTimeout(() => {
             notif.remove();
-            bar.remove();
-            move(timing + 500);
         }, timing + 500);
     }
 }
@@ -49,28 +57,6 @@ createNotification = function(txt, time) {
 window.addEventListener('message', (event) => {
 	let data = event.data
 	if(data.action == true){
-		createNotification(data.message, data.timing)
+		createNotification(data.message, data.timing, data.rgba, data.image)
 	}
 })
-
-
-
-// LOAD BAR
-var i = 0;
-function move(timing) {
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementById("loadBar");
-    var width = 1;
-    var id = setInterval(frame, timing);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
-      }
-    }
-  }
-}
