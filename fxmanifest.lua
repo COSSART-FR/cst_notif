@@ -2,7 +2,7 @@ fx_version 'adamant'
 game 'gta5'
 
 name 'cst_notif'
-author 'COSSART'
+author 'COSSART & SUP2Ak'
 description 'Notification'
 
 version '1.0'
@@ -10,9 +10,10 @@ ui_page "ui/index.html"
 
 files {
   "ui/index.html",
+  "ui/config.js",
   "ui/script.js",
   "ui/style.css",
-  "ui/logo.png",
+  "ui/img/*.png",
 }
 
 client_scripts {
