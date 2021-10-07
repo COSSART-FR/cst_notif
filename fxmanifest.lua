@@ -14,6 +14,7 @@ files {
   "ui/script.js",
   "ui/style.css",
   "ui/img/*.png",
+  "ui/fonts/*.ttf"
 }
 
 client_scripts {
