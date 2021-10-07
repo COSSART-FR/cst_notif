@@ -4,12 +4,12 @@ Système de notification en html/css/js/lua
 
 # server_side :
 ```
-TriggerClientEvent("cst:simpleNotification", source, "My text", msec, "color", "logo")
+TriggerClientEvent("cst:simpleNotification", source, "txt", time, "color", "logo", "border", "font", "fontSize", "padding", {'anim1','anim2'})
 ```
 
 # client_side :
 ```
-exports["cst_notif"]:simpleNotification("My text", msec, "color", "logo")
+exports["cst_notif"]:simpleNotification("txt", time, "color", "logo", "border", "font", "fontSize", "padding", {'anim1','anim2'})
 ```
 
 [EN]
