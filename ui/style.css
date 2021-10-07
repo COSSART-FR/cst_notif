@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
+@font-face {
+    font-family: pricedown;
+    src: url('fonts/pricedown.ttf');
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,28 +13,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Poppins", sans-serif;
+   /* font-family: "Poppins", sans-serif;*/
     margin: 0;
     min-height: 100vh;
 }
 
 #container {
     position: fixed;
-    bottom: 150px;
-    right: 5px;
+    /* bottom: 150px; */
+    /* right: 5px; */
     width: 250px;
 }
 
 .toast {
     /*background-color: #2b2b2b;*/
     color: #fff;
-    padding: 10px 10px;
+    /*padding: 10px 10px;*/
+    /*bottom: 150px;*/
+   /* right: 5px;*/
     margin: 2px;
     opacity: 0.9;
-    animation: anim 1s;
+    /*animation: rotatein 1s;*/
     display: flex;
     align-items: center;
-    font-size: 15px;
+   /* font-size: 15px;*/
 }
 
 .toast img {
@@ -39,10 +46,8 @@ body {
 }
 
 .remove-notif {
-    animation: animremove 1s;
+    animation: rotateout 1s;
 }
-
-
 
 
 @keyframes anim {
@@ -60,5 +65,122 @@ body {
     }
     100% {
         transform: translateX(300px);
+    }
+}
+
+@keyframes rotatein {
+    from {
+        transform: rotate(0) scale(0);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes rotateout {
+    from {
+        transform: rotate(0) scale(1);
+    }
+
+    to {
+        transform: rotate(-360deg) scale(0);
+    }
+}
+@keyframes shorten {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0;
+    }
+}
+@keyframes scalein {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleout {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+@keyframes insert-left {
+    from {
+        transform: rotateY(-70deg);
+        transform-origin: left;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        transform-origin: left;
+    }
+}
+
+@keyframes insert-top {
+    from {
+        transform: rotateX(70deg);
+        transform-origin: top;
+    }
+
+    to {
+        transform: rotateX(0deg);
+        transform-origin: top;
+    }
+}
+
+@keyframes insert-bottom {
+    from {
+        transform: rotateX(-70deg);
+        transform-origin: bottom;
+    }
+
+    to {
+        transform: rotateX(0deg);
+        transform-origin: bottom;
+    }
+}
+
+@keyframes insert-right {
+    from {
+        transform: rotateY(-70deg);
+        transform-origin: right;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        transform-origin: right;
     }
 }
