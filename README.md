@@ -1,6 +1,6 @@
 # cst_notif
 Système de notification en html/css/js/lua
-(pas encore terminé mais fonctionnel!)
+Preview : https://streamable.com/2gz6vc
 
 # server_side :
 ```
