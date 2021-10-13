@@ -10,13 +10,27 @@ let defaultFontSize = config.defaultFontSize;
 let defaultPadding = config.defaultPadding;
 let defaultPos = config.defaultPos;
 let defaultAnim = config.defaultAnim;
+
+/**
+ * @typedef createNotification
+ * @type {function}
+ * @property {string} txt - Votre texte
+ * @property {number} time - La durée d'affichage
+ * @property {string} color - La couleur du background
+ * @property {string} image - Nom de l'image dans le dossier image (sous png)
+ * @property {table[string]} font - Une table avec 2paramètre {'police', 'TaillePolice'}
+ * @property {table[string]} animation - Une table avec 2paramètre {'AnimeIn 1s', 'AnimeOut 1s'}
+ * @property {string} border - Bordure du background
+ * @property {string} padding - Padding du text 'auto' par default
+*/
+
 //console.log(defaultLogo, defaultTimer, defaultBackgroundColor, defaultLogo, '--> [PARAMETRE DEFAULT CONFIG]')
-createNotification = function(txt, time, color, image, border, font, fontSize, padding,/* pos,*/ animation) {
+createNotification = function(txt, time, color, image, font, animation, border, padding) {
     let timing = time;
     let message = txt;
     let borderRadius = border;
     let typeFont = font;
-    let sizeFont = fontSize;
+    //let sizeFont = fontSize;
     let setPadding = padding;
     /*let setPosition = pos*/
     let anim = animation;
@@ -55,17 +69,12 @@ createNotification = function(txt, time, color, image, border, font, fontSize, p
     }
     //Type de police
     if(typeFont){
-        notif.style.fontFamily = font;
+        notif.style.fontFamily = font[0];
+        notif.style.fontSize = font[1];
     }else{
         notif.style.fontFamily = defaultFont;
-    }
-    //Taille de la police
-    if(sizeFont){
-        notif.style.fontSize = fontSize;
-    }else{
         notif.style.fontSize = defaultFontSize;
     }
-    //Padding
     if(setPadding){
         notif.style.padding = padding;
     }else{
@@ -132,8 +141,5 @@ createNotification = function(txt, time, color, image, border, font, fontSize, p
 
 window.addEventListener('message', (event) => {
 	let data = event.data
-	if(data.action == true){
-		createNotification(data.message, data.timing, data.rgba, data.image, data.border, data.font, data.fontSize, data.padding/*, data.position*/, data.animation)
-        //console.log(data.position)
-	}
+	createNotification(data.message, data.timing, data.rgba, data.image, data.font, data.animation, data.border, data.padding)
 })

@@ -22,5 +22,5 @@ client_scripts {
 }
 
 export {
-  'simpleNotification'
+  'cstNotification'
 }

@@ -4,17 +4,15 @@ Preview : https://streamable.com/2gz6vc
 
 # server_side :
 ```
-TriggerClientEvent("cst:simpleNotification", source, "txt", time, "color", "logo", "border", "font", "fontSize", "padding", {'anim1','anim2'})
-```
+TriggerClientEvent("cst:Notification", source, "txt", time, "color", "logo", {"font","fontSize"}, {"AnimIn","AnimeOut"}, "border", "padding")
+
 
 # client_side :
 ```
-exports["cst_notif"]:simpleNotification("txt", time, "color", "logo", "border", "font", "fontSize", "padding", {'anim1','anim2'})
+exports["cst_notif"]:cstNotification("Mon texte", 2500, "rgba(255,255,255,0.5)", "monLogo", {"votrePolice", "TaillePolice"}, {"AnimIn seconde", "AnimeOut seconde"}, "30px", "auto")
 ```
 
 [EN]
 - if text/value(msec)/color/logo are undefined then data = [config.js]
 
 [FR]
-- Si vous ne paramètrer pas les paramêtre dans l'export ou l'event alors les paramètres non définit seront ceux du fichier [config.js]
-- Pour utilisez les images personnalisé il vous suffit de mettre des images en .png dans le fichier [img] et des le paramètre __logo__ mettre le nom de celle-ci sous forme d'un string "supv" sans le .png
