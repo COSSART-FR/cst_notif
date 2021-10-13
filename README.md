@@ -5,7 +5,7 @@ Système de notification en html/css/js/lua
 # server_side :
 ```
 TriggerClientEvent("cst:Notification", source, "txt", time, "color", "logo", {"font","fontSize"}, {"AnimIn","AnimeOut"}, "border", "padding")
-
+```
 
 # client_side :
 ```
