@@ -5,7 +5,7 @@ Preview : https://streamable.com/2gz6vc
 # server_side :
 ```
 TriggerClientEvent("cst:Notification", source, "txt", time, "color", "logo", {"font","fontSize"}, {"AnimIn","AnimeOut"}, "border", "padding")
-
+```
 
 # client_side :
 ```
