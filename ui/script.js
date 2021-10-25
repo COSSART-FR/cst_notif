@@ -69,8 +69,8 @@ createNotification = function(txt, time, color, image, font, animation, border, 
     }
     //Type de police
     if(typeFont){
-        notif.style.fontFamily = font[0];
-        notif.style.fontSize = font[1];
+        notif.style.fontFamily = font[0] || defaultFont;
+        notif.style.fontSize = font[1] || defaultFontSize;
     }else{
         notif.style.fontFamily = defaultFont;
         notif.style.fontSize = defaultFontSize;
